@@ -9,6 +9,7 @@ c = conn.cursor()
 c.execute("CREATE TABLE IF NOT EXISTS progress (user TEXT, question_id INT)")
 
 # App title
+st.sidebar.title("Student Teaching App")
 st.title("Student Teaching App")
 st.write("Upload questions, select filters, and solve interactively.")
 
