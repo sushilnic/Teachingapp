@@ -88,11 +88,11 @@ if data is not None:
                      st.error("Incorrect! Please try again.")
                 else:
                     st.error("Answer cannot be empty.")
-                st.write(f"**Answer:** {row['Answer']}")
-                st.session_state.solved.append(idx)
-                c.execute("INSERT INTO progress (user, question_id) VALUES (?, ?)", ("user1", idx))
-                conn.commit()
-                st.success("Question marked as solved.")
+               # st.write(f"**Answer:** {row['Answer']}")
+                #st.session_state.solved.append(idx)
+                #c.execute("INSERT INTO progress (user, question_id) VALUES (?, ?)", ("user1", idx))
+                #conn.commit()
+                $st.success("Question marked as solved.")
                # st.rerun()  # Reload to reflect progress
     else:
         st.warning("No questions found for the selected filters.")
