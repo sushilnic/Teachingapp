@@ -26,7 +26,7 @@ if uploaded_file:
     try:
         # Read file
         if uploaded_file.name.endswith(".csv"):
-            data = pd.read_csv(uploaded_file, encoding="utf-16")
+            data = pd.read_csv(uploaded_file,  encoding='utf-8')
         elif uploaded_file.name.endswith(".xlsx"):
             data = pd.read_excel(uploaded_file)
 
