@@ -38,7 +38,7 @@ if uploaded_file:
         st.error(f"Error reading file: {e}")
 
 # Language selection
-language = st.sidebar.selectbox("Select Language", data["Language"].unique() if data is not None else [])
+language = st.sidebar.radio("Select Language", data["Language"].unique() if data is not None else [])
 
 # Chapter and exercise selection
 chapter = st.sidebar.selectbox("Select Chapter", data["Chapter"].unique() if data is not None else [])
