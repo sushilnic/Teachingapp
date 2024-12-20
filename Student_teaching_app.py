@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import time
 import sqlite3
-
+from streamlit.proto.Progress_pb2 import Progress as ProgressProto
 # SQLite connection for progress tracking
 conn = sqlite3.connect("student_progress.db")
 c = conn.cursor()
@@ -11,7 +11,7 @@ c.execute("CREATE TABLE IF NOT EXISTS progress (user TEXT, question_id INT)")
 # App title
 st.sidebar.title("Student Teaching App")
 st.title("Student Teaching App")
-st.write("Upload questions, select filters, and solve interactively.")
+st.write("Select filters, and solve interactively.")
 
 # Session state for tracking progress
 if "solved" not in st.session_state:
@@ -95,7 +95,7 @@ st.write("### Progress")
 total_questions = len(filtered_data) if data is not None else 0
 solved_questions = len(st.session_state.solved)
 st.write(f"Questions Solved: {solved_questions}/{total_questions}")
-progress = solved_questions / total_questions if total_questions else 0
+int progress = solved_questions / total_questions if total_questions else 0
 st.progress(progress)
 
 # Export progress
