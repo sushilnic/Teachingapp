@@ -118,7 +118,7 @@ if st.button("Start 10-Second Timer"):
 
 # Theme toggle
 # Theme toggle radio button
-theme = st.radio("Select Theme", ["Light", "Dark"], horizontal=True)
+theme = st.sidebar.radio("Select Theme", ["Light", "Dark"], horizontal=True)
 
 # Dynamic CSS based on selected theme
 if theme == "Dark":
@@ -143,3 +143,7 @@ else:
         </style>
         """, unsafe_allow_html=True
     )
+     st.sidebar.markdown("---")
+    # add author name and info
+    st.sidebar.markdown("Created by: ..........")
+    st.sidebar.markdown("Contact: [Email](mailto:sushil.kr.agrawal@gmail.com)")
