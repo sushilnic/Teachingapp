@@ -31,9 +31,9 @@ if uploaded_file:
         # Validate structure
         required_columns = ["Question", "Answer", "Chapter", "Exercise", "Language", "Difficulty"]
         if not all(col in data.columns for col in required_columns):
-            st.error(f"Uploaded file must contain columns: {', '.join(required_columns)}")
+            st.sidebar.error(f"Uploaded file must contain columns: {', '.join(required_columns)}")
         else:
-            st.success("File uploaded and validated successfully!")
+            st.sidebar.success("File uploaded and validated successfully!")
     except Exception as e:
         st.error(f"Error reading file: {e}")
 
