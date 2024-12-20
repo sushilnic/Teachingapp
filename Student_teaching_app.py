@@ -88,7 +88,7 @@ if data is not None:
 # Clear selection button
 if st.sidebar.button("Clear Selection"):
     chapter, exercise, difficulty = None, None, None
-    st.rerun()
+    st.ex
 
 # Progress tracking
 st.write("### Progress")
@@ -117,7 +117,10 @@ if st.button("Start 10-Second Timer"):
     st.write("Time's up!")
 
 # Theme toggle
-theme = st.sidebar.radio("Select Theme", ["Light", "Dark"])
+# Theme toggle radio button
+theme = st.radio("Select Theme", ["Light", "Dark"], horizontal=True)
+
+# Dynamic CSS based on selected theme
 if theme == "Dark":
     st.markdown(
         """
@@ -128,4 +131,15 @@ if theme == "Dark":
         }
         </style>
         """, unsafe_allow_html=True
-      )
+    )
+else:
+    st.markdown(
+        """
+        <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        </style>
+        """, unsafe_allow_html=True
+    )
