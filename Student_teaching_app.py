@@ -104,7 +104,8 @@ if st.sidebar.button("Clear Selection"):
     st.ex
 
 # Progress tracking
-st.write("### Progress")
+#st.write("### Progress")
+st.markdown("### Progress:")
 total_questions = len(filtered_data) if data is not None else 0
 solved_questions = len(st.session_state.solved)
 st.write(f"Questions Solved: {solved_questions}/{total_questions}")
