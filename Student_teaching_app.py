@@ -73,7 +73,7 @@ if data is not None:
             # Display image if available
             if "Image" in row and pd.notna(row["Image"]):
                 st.image(row["Image"], caption=f"Diagram for Q{idx+1}")
-
+            user_answer = st.text_input(f"Your Answer for Q{idx+1}", key=f"answer_{idx}")
             # Solve button
             if st.button(f"Solve Q{idx+1}", key=idx):
                 st.write(f"**Answer:** {row['Answer']}")
