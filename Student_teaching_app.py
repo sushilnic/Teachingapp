@@ -17,7 +17,7 @@ if "solved" not in st.session_state:
     st.session_state.solved = []
 
 # File uploader
-uploaded_file = st.file_uploader("Upload Questions File (CSV/Excel)", type=["csv", "xlsx"])
+uploaded_file = st.sidebar.file_uploader("Upload Questions File (CSV/Excel)", type=["csv", "xlsx"])
 data = None
 
 if uploaded_file:
@@ -38,14 +38,14 @@ if uploaded_file:
         st.error(f"Error reading file: {e}")
 
 # Language selection
-language = st.selectbox("Select Language", data["Language"].unique() if data is not None else [])
+language = st.sidebar.selectbox("Select Language", data["Language"].unique() if data is not None else [])
 
 # Chapter and exercise selection
-chapter = st.selectbox("Select Chapter", data["Chapter"].unique() if data is not None else [])
-exercise = st.selectbox("Select Exercise", data["Exercise"].unique() if data is not None else [])
+chapter = st.sidebar.selectbox("Select Chapter", data["Chapter"].unique() if data is not None else [])
+exercise = st.sidebar.selectbox("Select Exercise", data["Exercise"].unique() if data is not None else [])
 
 # Difficulty level
-difficulty = st.selectbox("Select Difficulty Level", data["Difficulty"].unique() if data is not None else [])
+difficulty = st.sidebar.selectbox("Select Difficulty Level", data["Difficulty"].unique() if data is not None else [])
 
 # Filter data
 if data is not None:
@@ -87,7 +87,7 @@ if data is not None:
 # Clear selection button
 if st.button("Clear Selection"):
     chapter, exercise, difficulty = None, None, None
-    st.experimental_rerun()
+    st.rerun()
 
 # Progress tracking
 st.write("### Progress")
