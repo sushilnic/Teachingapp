@@ -143,7 +143,7 @@ else:
         </style>
         """, unsafe_allow_html=True
     )
-     st.sidebar.markdown("---")
+st.sidebar.markdown("---")
     # add author name and info
-    st.sidebar.markdown("Created by: ..........")
-    st.sidebar.markdown("Contact: [Email](mailto:sushil.kr.agrawal@gmail.com)")
+st.sidebar.markdown("Created by: ..........")
+st.sidebar.markdown("Contact: [Email](mailto:sushil.kr.agrawal@gmail.com)")
