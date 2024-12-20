@@ -79,6 +79,11 @@ if data is not None:
                 if user_answer.strip():
                     if str(user_answer).strip() == str(row["Answer"]).strip():
                       st.success("Correct! 🎉")
+                      st.write(f"**Answer:** {row['Answer']}")
+                      st.session_state.solved.append(idx)
+                      c.execute("INSERT INTO progress (user, question_id) VALUES (?, ?)", ("user1", idx))
+                      conn.commit()
+                      st.success("Question marked as solved.")
                     else:
                      st.error("Incorrect! Please try again.")
                 else:
