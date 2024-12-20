@@ -95,8 +95,8 @@ st.write("### Progress")
 total_questions = len(filtered_data) if data is not None else 0
 solved_questions = len(st.session_state.solved)
 st.write(f"Questions Solved: {solved_questions}/{total_questions}")
-int progress = solved_questions / total_questions if total_questions else 0
-st.progress(progress)
+progress = solved_questions / total_questions if total_questions else 0
+st.progress(int(progress))
 
 # Export progress
 if st.button("Export Progress"):
