@@ -85,7 +85,7 @@ if data is not None:
         st.warning("No questions found for the selected filters.")
 
 # Clear selection button
-if st.button("Clear Selection"):
+if st.sidebar.button("Clear Selection"):
     chapter, exercise, difficulty = None, None, None
     st.rerun()
 
@@ -116,7 +116,7 @@ if st.button("Start 10-Second Timer"):
     st.write("Time's up!")
 
 # Theme toggle
-theme = st.radio("Select Theme", ["Light", "Dark"])
+theme = st.sidebar.radio("Select Theme", ["Light", "Dark"])
 if theme == "Dark":
     st.markdown(
         """
