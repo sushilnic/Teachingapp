@@ -78,7 +78,7 @@ if data is not None:
             if st.button(f"Solve Q{idx+1}", key=idx):
                  if user_answer.strip():
                     st.success("Answer submitted!")
-                else:
+                 else:
                     st.error("Answer cannot be empty.")
                 st.write(f"**Answer:** {row['Answer']}")
                 st.session_state.solved.append(idx)
