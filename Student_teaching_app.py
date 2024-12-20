@@ -80,7 +80,7 @@ if data is not None:
                 c.execute("INSERT INTO progress (user, question_id) VALUES (?, ?)", ("user1", idx))
                 conn.commit()
                 st.success("Question marked as solved.")
-                st.experimental_rerun()  # Reload to reflect progress
+                st.rerun()  # Reload to reflect progress
     else:
         st.warning("No questions found for the selected filters.")
 
