@@ -76,6 +76,10 @@ if data is not None:
             user_answer = st.text_input(f"Your Answer for Q{idx+1}", key=f"answer_{idx}")
             # Solve button
             if st.button(f"Solve Q{idx+1}", key=idx):
+                 if user_answer.strip():
+                    st.success("Answer submitted!")
+                else:
+                    st.error("Answer cannot be empty.")
                 st.write(f"**Answer:** {row['Answer']}")
                 st.session_state.solved.append(idx)
                 c.execute("INSERT INTO progress (user, question_id) VALUES (?, ?)", ("user1", idx))
