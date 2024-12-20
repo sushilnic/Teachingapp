@@ -9,9 +9,9 @@ c = conn.cursor()
 c.execute("CREATE TABLE IF NOT EXISTS progress (user TEXT, question_id INT)")
 
 # App title
-st.sidebar.title("Student Teaching App")
-st.title("Interactive Mathematics Learning App")
-#st.subheader("Interactive Mathematics Teaching App")
+st.sidebar.title("Math Guru")
+st.title("Math Guru")
+st.subheader("Interactive Mathematics Teaching App")
 st.write("Select filters, and solve interactively.")
 
 # Session state for tracking progress
