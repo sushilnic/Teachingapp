@@ -92,7 +92,7 @@ if data is not None:
                 #st.session_state.solved.append(idx)
                 #c.execute("INSERT INTO progress (user, question_id) VALUES (?, ?)", ("user1", idx))
                 #conn.commit()
-                $st.success("Question marked as solved.")
+                #st.success("Question marked as solved.")
                # st.rerun()  # Reload to reflect progress
     else:
         st.warning("No questions found for the selected filters.")
