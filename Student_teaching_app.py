@@ -11,7 +11,7 @@ c.execute("CREATE TABLE IF NOT EXISTS progress (user TEXT, question_id INT)")
 # App title
 st.sidebar.title("Math Guru")
 st.title("GanitGuru (गणितगुरु)")
-st.subheader("Interactive Mathematics Teaching App")
+st.subheader("A platform for solving math questions interactively")
 st.write("Select filters, and solve interactively.")
 
 # Session state for tracking progress
