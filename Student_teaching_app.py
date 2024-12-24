@@ -128,7 +128,19 @@ if st.button("Export Progress"):
     progress_data = pd.DataFrame(st.session_state.solved, columns=["Solved Questions"])
     progress_data.to_csv("progress.csv", index=False)
     st.success("Progress exported successfully!")
-
+# Download PDF button
+if st.button("Download Page as PDF"):
+    if filtered_data is not None:
+        pdf_file = export_to_pdf(user, filtered_data)
+        with open(pdf_file, "rb") as file:
+            st.download_button(
+                label="Download PDF",
+                data=file,
+                file_name=pdf_file,
+                mime="application/pdf"
+            )
+    else:
+        st.error("No data available to export.")
 # Gamification
 if solved_questions >= 5:
     st.balloons()
@@ -173,17 +185,3 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("Created by: ..........")
 st.sidebar.markdown("Contact: [Email](mailto:sushil.kr.agrawal@gmail.com)")
 
-
-# Download PDF button
-if st.button("Download Page as PDF"):
-    if filtered_data is not None:
-        pdf_file = export_to_pdf(user, filtered_data)
-        with open(pdf_file, "rb") as file:
-            st.download_button(
-                label="Download PDF",
-                data=file,
-                file_name=pdf_file,
-                mime="application/pdf"
-            )
-    else:
-        st.error("No data available to export.")
