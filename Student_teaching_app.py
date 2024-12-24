@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import time
 import sqlite3
-from fpdf import FPDF
 from streamlit.proto.Progress_pb2 import Progress as ProgressProto
 # SQLite connection for progress tracking
 conn = sqlite3.connect("student_progress.db")
