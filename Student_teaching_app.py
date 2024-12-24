@@ -9,16 +9,6 @@ conn = sqlite3.connect("student_progress.db")
 c = conn.cursor()
 c.execute("CREATE TABLE IF NOT EXISTS progress (user TEXT, question_id INT)")
 
-def export_to_pdf(user, filtered_data):
-    pdf = FPDF()
-    pdf.add_page()
-    pdf.set_font("Arial", size=12)
-    pdf.cell(200, 10, txt="User Progress Report", ln=True, align='C')
-    for idx, row in filtered_data.iterrows():
-        pdf.multi_cell(0, 10, txt=f"Q{idx+1}: {row['Question']}\nAnswer: {row['Answer']}")
-    pdf_file = f"{user}_progress.pdf"
-    pdf.output(pdf_file)
-    return pdf_file
 
 # App title
 st.sidebar.title("Math Guru")
@@ -129,19 +119,7 @@ if st.button("Export Progress"):
     progress_data = pd.DataFrame(st.session_state.solved, columns=["Solved Questions"])
     progress_data.to_csv("progress.csv", index=False)
     st.success("Progress exported successfully!")
-# Download PDF button
-if st.button("Download Page as PDF"):
-    if filtered_data is not None:
-        pdf_file = export_to_pdf('Test',filtered_data)
-        with open(pdf_file, "rb") as file:
-            st.download_button(
-                label="Download PDF",
-                data=file,
-                file_name=pdf_file,
-                mime="application/pdf"
-            )
-    else:
-        st.error("No data available to export.")
+
 # Gamification
 if solved_questions >= 5:
     st.balloons()
