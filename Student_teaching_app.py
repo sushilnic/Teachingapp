@@ -131,7 +131,7 @@ if st.button("Export Progress"):
 # Download PDF button
 if st.button("Download Page as PDF"):
     if filtered_data is not None:
-        pdf_file = export_to_pdf(user, filtered_data)
+        pdf_file = export_to_pdf('Test',filtered_data)
         with open(pdf_file, "rb") as file:
             st.download_button(
                 label="Download PDF",
